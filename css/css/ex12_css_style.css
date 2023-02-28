@@ -1,0 +1,30 @@
+.input-style {
+    width: 350px;
+    font-size: 35px;
+}
+
+.table {
+    width: 300px;
+    height: 200px;
+}
+
+.header-style {
+    background-color: honeydew;
+}
+
+th {
+    font-size: 22px;
+    font-family: Verdana, 'Lucida Console', 'Times New Roman', Times, serif;
+}
+
+tr {
+    text-align: right;
+}
+
+td {
+    text-align: center;
+}
+
+tr:hover {
+    background-color:aquamarine;
+}
