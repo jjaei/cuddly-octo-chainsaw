@@ -1,0 +1,65 @@
+<!doctype html>
+<html>
+<head>
+   <meta charset="utf-8">
+   <title>HTML 요소 선택 스타일링</title>
+   <style>
+    * {
+        color:blue;
+    }
+
+    h2 {
+        color: red;
+    }
+
+    p {
+        font-size: 36px;
+        margin-left: 20px;
+    }
+
+    #container {
+        background-color: #ff6a00;   /* 바탕색 */
+        width: 400px;
+        height:200px;
+        margin: 100px auto;
+    }
+    div.greentext {
+        color: green;
+    }
+    .cyantext {
+        color: cyan;
+    }
+    p.grey, p.violet {
+        font-size:24px;
+        margin-left: 100px;
+    }
+    p.grey { 
+        color:grey;
+    }
+    p.violet {
+        color:violet;
+    }
+    .bigfont {
+        font-size:72px;
+    }
+    .frontcolor {
+        color:darkorchid;
+    }
+   </style>
+</head>
+<body>
+    <h1>HTML 요소 선택</h1>
+    <h2>특정 태그를 사용한 요소에 스타일 적용하기</h2>
+    <p class="greentext">특정 태그가 쓰인 모든 요소에 스타일을 적용한다.</p>
+    <center>
+    <div id="container"></div>
+    </center>
+    <div class="greentext">초록색 텍스트</div>
+    <div class="cyantext">하늘색 텍스트</div>
+    <h1>그룹 선택하기</h1>
+    <p class="grey">그룹 공통으로 필요한 것은 여러 선택자를 쉼표로</p>
+    <p class="violet">연결하고 한 번만 정의하십시오.</p>
+    <p class="bigfont frontcolor">이번 시즌 대표 폰트는 바로 이것입니다.</p>
+
+</body>
+</html>
