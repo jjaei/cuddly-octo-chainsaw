@@ -1,0 +1,59 @@
+.box1 {
+    width: 200px;
+    height: 100px;
+    background-color: rgb(253, 228, 244);
+    margin-left: 10px;
+    margin-bottom: 20px;
+}
+
+.box2 {
+    width: 200px;
+    height: 100px;
+    background-color: rgb(221, 243, 252);
+    padding: 10px 0px 0px 30px;
+}
+
+.box3 {
+    width: 100px;
+    height: 100px;
+    background-color: rgb(229, 250, 229);
+}
+
+.box4 {
+    width: 100px;
+    height: 100px;
+    background-color: rgb(252, 191, 203);
+}
+
+.box5 {
+    width: 100px;
+    height: 100px;
+    background-color: rgb(221, 211, 240);
+}
+
+.flex-row {
+    display: flex;
+}
+
+.box-align-1 {
+    /* 앞, 뒤, 모든 요소들 사이에 여유공간을 두고 배치 */
+    justify-content: space-around;
+}
+
+.box-align-2 {
+    /* 모든 요소 간의 거리가 동일하게 배치 */
+    justify-content: space-evenly;
+}
+
+.box-align-3 {
+    /* 앞, 뒤 요소는 고려하지 않고 X 요소 간의 거리만 주고 배치 */
+    justify-content: space-between;
+}
+
+.box-align-center {
+    justify-content: center;
+}
+
+.box-align-end {
+    justify-content: end;
+}
