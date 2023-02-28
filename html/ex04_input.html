@@ -1,0 +1,62 @@
+<!doctype html>
+<html>
+<head>
+   <meta charset="utf-8">
+   <title>inputs</title>
+</head>
+<body>
+    <!-- 텍스트 입력-->
+    <h3>사용자 정보 입력</h3>
+    이름 : <input type="text" value="NONAME"><br>
+    계정 : <input type="text" placeholder="ID 입력"><br>
+    암호 : <input type="password"><br>
+    <label>확인 : </label><input type="password">
+    <br><hr>
+
+    <!-- radio button : name이 동일해야 함-->
+    <h3>저녁 메뉴를 고르시오.</h3>
+    <label>떡볶이<input type="radio" name="dinner"></label>
+    <label>낙지볶음밥<input type="radio" name="dinner" checked></label>
+    <label>콩나물국밥<input type="radio" name="dinner" checked></label>
+    <br><hr>
+
+    <!-- 체크박스 -->
+
+    <h3>당신의 취미는 무엇인가요?</h3>
+    <label>운동하기<input type="checkbox" checked></label>
+    <label>영화보기<input type="checkbox"></label>
+    <label>독서<input type="checkbox"></label>
+    <br><hr>
+
+    <!-- 파일입력 -->
+    <h3>파일 업로드</h3>
+    <input type="file"/>
+    <br><hr>
+
+    <!-- 버튼 -->
+    <h3>제출 시 수정 불가능합니다.</h3>
+    <button type="button" size="100">이력서 제출</button>
+    <br><hr>
+
+    <!-- 셀렉트 박스(옵션) -->
+    <h3>저녁 디저트로 무엇을 드시겠습니까?</h3>
+    <select>
+        <option>사과</option>
+        <option>딸기</option>
+        <option selected>제로콜라</option>
+        <option>필요없음</option>
+    </select>
+    <br><hr>
+
+    <!-- 텍스트 에어리어 -->
+    <h3>나한테 하고 싶은 말을 적으세요.</h3>
+    <textarea cols="100" rows="10"></textarea>
+    <br><hr>
+
+    <!-- 프로그레스 바 -->
+    <h3>영화 손익분기점 달성율</h3>
+    <progress value="70" max="100"></progress> 
+    <br>
+
+</body>
+</html>
