@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+<head>
+   <meta charset="utf-8">
+   <title>구구단(Gugudan)</title>
+</head>
+<body>
+    <h1>구구단 출력 프로그램</h1>
+    <h3>원하시는 단으로 출력해드립니다.</h3>
+    <hr>
+</body>
+<script>
+    while(true) {
+        var input = prompt("단을 입력해주세요.");
+        var dan = parseInt(input);
+        console.log("입력하신 단은 " + dan + "단 입니다.");
+        var check = (input - dan != 0.0);  // 소수를 입력하면 true
+        console.log("input - dan : " + check);
+        
+        if(check || isNaN(dan) || dan < 1) {
+            alert("출력할 수 없는 단입니다.");
+            console.log("Critical : Wrong Input");
+        } else {
+            for(let i=1; i<=dan; i++) {
+                document.write("<h2>" + dan + " * " + i + " = " + dan*i + "</hr2>");
+            }   break;
+        }  
+    }
+</script>
+</html>

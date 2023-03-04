@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+<head>
+   <meta charset="utf-8">
+   <title>math</title>
+</head>
+<body>
+    <h3>Math를 이용한 구구단 트레이닝</h3>
+    <hr>
+</body>
+<script>
+    document.writeln("랜덤 수 연습 : " +Math.random()); 
+    document.writeln("<br>");
+    // 1 ~ n 사이의 랜덤 정수 만들기 : Math.floor(Math.random()) + 1;
+    function getRandom() {  // 1부터 9사이의 정수 만들기
+        return Math.floor(Math.random()*9) + 1;
+    }
+    var q = getRandom() + " * " + getRandom();
+    var ans = eval(q);
+    console.log(q + " = " + ans);
+    var myAnswer = prompt(q, 0);
+
+    if(myAnswer==null || isNaN(myAnswer)){
+        document.writeln("올바른 형식이 아닙니다.");
+    } else {
+        if(myAnswer == ans) {
+            document.write("<h1>정답입니다~!</h1>");
+        } else {
+            document.write("<h6>정답이 아닙니다. 다시 공부하세요!</h6>");
+        }
+    }
+
+</script>
+</html>

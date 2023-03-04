@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+<head>
+   <meta charset="utf-8">
+   <title>timeouts</title>
+</head>
+<body>
+    <h1>마우스를 올려보세요.</h1>
+    <hr>
+    <div onmouseover="body.style.background='skyblue'"
+           onmouseout="body.style.background='white'">
+        이곳에 마우스를 올리시면 색을 바꿔드리도록 하겠습니다.
+    </div>
+    <hr>
+    <h1>약속한 시간이 지나면 실행한다.</h1>
+    <div id="wrap"></div>
+</body>
+<script>
+
+    // setTimeout(function, millisec)
+    function formatYourPC() {
+        document.write("<p><font size='36'>너의 PC는 이제 포맷된다 ㅎㅎ</font></p>");
+    }
+
+    /*
+    setTimeout(formatYourPC, 3000);  // 3초 후에 formatYourPC 실행
+    setTimeout(function() {
+        document.write("<p>진짜 포맷된다!!</p>");
+    }, 5000);
+    */
+
+    //setInterval(function, millisec) 간격 조정
+    function formatYourPC2() {
+        const div = document.getElementById('wrap');
+        let h2 = document.createElement('h2');  // <h2></h2> 생성
+        h2.innerHTML = "너 이제 진짜 큰일났다!! ㅎㅎ";
+        div.appendChild(h2);
+    }   
+
+    var inter = setInterval(formatYourPC2, 3000);
+    setTimeout(function() {
+        clearInterval(inter);
+    }, 20000);
+
+</script> 
+</html>

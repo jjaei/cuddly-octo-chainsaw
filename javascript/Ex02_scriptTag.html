@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+<head>
+   <meta charset="utf-8">
+   <title>script tag에 코드 작성하기</title>
+</head>
+    <h1> 스크립트 코드에 작성된 페이지</h1>
+    <hr>
+    <!-- this는 해당 속성이 포함된 태그 -->
+    <img src="img/cat.bmp" 
+            onmouseover="over(this)"
+            onmouseout="out(this)"
+            onclick="click2(this)"
+            ondblclick="dblclick(this)">
+<body>
+</body>
+<script>
+    function over(arg) {
+        arg.src = "img/cat.jpg";
+    }
+    function out(arg) {
+        arg.src = "img/cat.bmp";
+    }
+    function click2(arg) {
+        arg.src = "img/dog.jpg";
+    }
+    function dblclick(arg) {
+        arg.width = "500";
+        alert("사이즈가 바뀝니다.");
+    }
+</script>
+</html>

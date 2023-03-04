@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+<head>
+   <meta charset="utf-8">
+   <title>dialog</title>
+</head>
+<body>
+    <h1>다이얼로그 테스트</h1>
+    <hr>
+</body>
+</html>
+    <script>
+        // prompt
+        var name = prompt("당신의 이름은 무엇인가요?", "이름을 입력하세요.");
+        document.write("<h1>" + name + "님 가입을 축하드립니다.</h1>");
+        console.log("로그를 찍어보세요.");
+        console.log(name)
+        document.write("<h1>" + name + "님 가입이 완료되었습니다.</h1>");
+
+        // confirm : true 또는 false
+        var msg = "";
+        var ret = confirm(name + "님. 이 상품을 구매하시겠습니까?");
+        console.log(ret);
+
+        if(ret) {
+            msg= name+ "님의 결제가 완료되었습니다.";
+        } else {
+            msg= name + "님의 결제가 취소되었습니다.";
+        }
+        document.write("<p>" + msg + "</p>");
+
+        // alert: 결과를 바라지 않음. 결과는 undefined
+        var ret2 = alert(msg);
+        alert("ret2 : " + ret2);
+    </script>
