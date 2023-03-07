@@ -1,0 +1,131 @@
+<!doctype html>
+<html>
+<head>
+   <meta charset="utf-8">
+   <title>CSS Selector</title>
+    <style>
+        label[for='attach'] div{
+            width: 150px;
+            height: 150px;
+            background-image: url('img/attach.jpg');
+            background-size: 100% 100%;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h3>CSS selector를 이용한 요소 선택</h3>
+    <hr>
+    <p class="odd">First Paragraph</p>
+    <ul>
+        <li class="odd">순대</li>
+        <li class="even">떡볶이</li>
+        <li class="odd">탕수육</li>
+        <li class="even">무제한 돈가스</li>
+        <li class="odd">피자&파스타</li>
+    </ul>
+    <br>
+    <h3>Element를 동적으로 생성, 삽입, 삭제</h3>
+    <hr>
+    <p>DOM tree에 동적으로 Element를 삽입할 수 있음.</p>
+    <p>createElement, appendChild, removeChild</p>
+    <a href="javascript:createDIV()">DIV 만들어보기</a>
+
+    <br><br>
+    <h3>CSS style 동적 변경</h3>
+    <hr>
+    <p>
+        나의 궁전에는 <span>16000개의 식당이 있어요.</span>
+    </p>
+    <input type="button" value="New Style?"/>
+    <br><br>
+    <h3>첨부파일 썸네일</h3>
+    <hr>
+    <label for="attach">
+        <div></div>
+    </label>
+    <input type="file" id="attach" style="display:none">
+</body>
+<script>
+    // querySelectorAll("선태자") : 선택자에 포함된 태그 전체 가져오기
+    // querySelector("선택자") : 선택자에 포함된 태그 중 첫 번째 태그
+    const li_odd = document.querySelectorAll("li.odd");
+    const li_even = document.querySelectorAll("li.even");
+    const li_all = document.querySelectorAll("li");
+
+    li_odd.forEach(function(li, idx){
+        console.log(li);
+        console.log(idx);
+        li.style.color="red";
+        if(idx==2){
+            li.style.color="crimson";
+        }
+    });
+
+    li_even.forEach(function(li, idx){
+        console.log(li);
+        console.log(idx);
+        li.style.color="magenta";
+        if(idx==1) {
+            li.style.color = "violet"
+        }
+    });
+
+    // for One Time
+    li_all.forEach((li) => {li.style.color=li.getAttribute("class")=="odd"? "red" : "magenta"});
+
+    function createDIV(){
+        const div = document.createElement("div");
+        div.innerHTML = "생성이 완료되었습니다.";
+        div.style.backgroundColor = "yellow";
+        document.body.appendChild(div);
+
+    // 추가된 div를 클릭하면 다시 사라지게 하기
+        div.addEventListener("dblclick",function(){
+            this.parentElement.removeChild(this)
+            // div의 parent로 child 제거
+        });
+    }
+
+    // span 영역 변경하기
+const input = document.querySelector("input[type='button']");
+const span = document.getElementsByTagName("span")[0];
+
+input.addEventListener("click", function(){
+    // alert("input button clicked");
+    this.style.background="pink";
+    span.style.fontSize ="32px";
+    span.style.border ="3px dotted lightgreen";
+    span.style.width ="500px";
+    span.style.display ="inline-block";
+});
+
+// 파일 입력 다루기
+    const file = document.querySelector("input[type='file']");
+    const thumbnail = document.querySelector("label[for='attach'] div");
+
+    file.addEventListener("change", function(event){
+        console.log(event);
+
+        // 특정 경로의 파일 읽기
+        let reader = new FileReader();
+
+        // 파일 정보를 reader에 주고 등록
+        reader.readAsDataURL(event.target.files[0])
+
+    // 등록 완료시 reader 객체의 load 이벤트 발생
+    reader.onload = function(event){
+       // console.log("event.target : " + event.target);
+       // console.log("event.target.result : " + event.target.result);
+
+       if(event.target.result.includes("image")){
+        console.log("이미지 파일입니다.");
+        // Image 교체
+        thumbnail.style.backgroundImage = "url(\"" + event.target.result + "\")";
+       } else{
+        console.log("이미지 파일이 아닙니다.");
+        }
+    }
+});
+</script>
+</html>

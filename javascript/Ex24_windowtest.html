@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+<head>
+   <meta charset="utf-8">
+   <title>window open()</title>
+</head>
+<body>
+    <h3>New Window Open</h3>
+    <hr>
+</body>
+<script>
+    setTimeout(function(){
+        window.open("http://www.daum.net", "_blank", "width=600, height=700");
+    }, 2000);
+
+    window.open("Ex24_windowtest_sub.html", "_blank", "width=500, height=730");
+    document.writeln("<h3> hostname : " + location.hostname + "</h3>");
+    document.writeln("<h3> url addr : " + location.href + "</h3>");
+    document.writeln("<h3> pathname : " + location.pathname + "</h3>");
+</script>
+</html>

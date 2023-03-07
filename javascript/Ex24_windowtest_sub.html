@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+<head>
+   <meta charset="utf-8">
+   <title>popup</title>
+</head>
+<body>
+    <a href = "javascript:opener.parent.location='Ex24_windowtest_sub2.html'; window.close();">클릭 금지!</a>
+    <div>
+        <label>
+            <input type="checkbox" value="ok">
+            <span>오늘 하루 종일 이 창 열기</span>
+        </label>
+    </div>
+</body>
+<script>
+    var checkbox = document.querySelector("input[type='checkbox']");
+    checkbox.addEventListener('click', function(){
+        var check = checkbox.checked;
+        if(check) {
+            window.close();
+        }
+    });
+</script>
+</html>
