@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+<head>
+ <meta charset="utf-8">
+ <title>jQuery Example 3</title>
+</head>
+<body>
+    <h1>전체 동의 구현</h1>
+    <hr>
+    <form action="" name="myForm">
+        <div>
+            <label>
+                전체 동의 <input type="checkbox" class="all">
+            </label>
+        </div>
+        <div>
+            <label>
+                서비스 이용 약관 동의 <input type="checkbox" name="term1" class="term">
+            </label>
+        </div>
+        <div>
+            <label>
+                정보 수집 동의 <input type="checkbox" name="term2" class="term">
+            </label>
+        </div>
+        <div>
+            <label>
+                개인정보 이용 약관 동의 <input type="checkbox" name="term3" class="term">
+            </label>
+        </div>
+    </form>
+</body>
+<script src="js/jquery-3.6.4.js"></script>
+<script>
+    var $all = $(".all");
+    var $terms = $(".term");
+
+    $all.on('click', function(){
+        console.log($(this).is(":checked"));
+        if($(this).is(":checked")){
+            $terms.prop('checked', true);
+        } else {
+            $terms.prop('checked', false);
+        }
+    });
+</script>
+<html>
