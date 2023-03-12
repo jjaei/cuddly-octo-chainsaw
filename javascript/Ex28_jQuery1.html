@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+<head>
+ <meta charset="utf-8">
+ <title>JQuery Example 1</title>
+</head>
+<body>
+    <div><input type="text" class="num" value="1"></div>
+    <div><input type="text" class="num1" value="2"></div>
+    <div><input type="text" class="num" value="3"></div>
+    <br>
+    <div>
+        <button onclick="change()">Pure Javascript</button>
+        <button onclick="$('.num1').css('border-color','skyblue');">Amazing jQuery</button>
+    </div>
+</body>
+<script src="js/jquery-3.6.4.js"></script>
+<script>
+    function change(){
+        var inputs = document.querySelectorAll(".num");
+        inputs.forEach(function(input){
+            input.style.borderColor = "pink";
+        });
+    }
+
+    
+</script>
+<html>
