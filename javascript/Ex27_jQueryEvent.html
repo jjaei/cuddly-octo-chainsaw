@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+<head>
+   <meta charset="utf-8">
+   <title>jQuery Event</title>
+</head>
+<body>
+    <ul class="dessert">
+        <li>Ice Americano</li>
+        <li>Cake</li>
+        <li>Macaron</li>
+        <li>IceCream</li>
+        <li>Egg Tart</li>
+        <li>Smoothie</li>
+        <li>Butter</li>
+        <li>Letsbe</li>
+        <li>Financier</li>
+        <li>Shrimp Toast</li>
+    </ul>
+    <div id="div1" style="cursor:pointer;">Don't Press, Please(Toggle)</div>
+    <div id="div2" style="cursor:pointer;">Don't Press, Please(Fade Toggle)</div>
+    <div id="div3" style="cursor:pointer;">Don't Press, Please(Slide Toggle)</div>
+</body>
+<script src="js/jquery-3.6.4.js"></script>
+<script>
+    const $div = $("ul").next();
+    const $ul = $("div").prev();
+    const $div1 = $("div#div1");
+    const $div2 = $("div#div2");
+    const $div3 = $("div#div3");
+
+    $div1.on("click", function(){
+        // $("선택자").show(밀리초) : 보이기
+        // $("선택자").hide(밀리초) : 숨기기
+        // $("선택자").toggle(밀리초) : 보이면 숨기고 숨겨져 있으면 보이기
+        $("ul").toggle(1000);
+    });
+
+    $div2.on("click", function() {
+        $("ul").fadeToggle(3000);
+        // fadeIn, fadeOut, fadeToggle 삼형제
+    })
+
+    $div3.on("click", function() {
+        $("ul").slideToggle(3000);
+        // slidedown, slideup, slideToggle 삼형제
+    })
+
+</script>
+</html>
