@@ -12,11 +12,7 @@ public class Ex38_DBConnect {
 		
 		try {
 			Class.forName("org.mariadb.jdbc.Driver");
-			conn = DriverManager.getConnection(
-					"jdbc:mariadb://localhost:포트넘버/member",
-					"이름",
-					"패스워드"
-					);
+			conn = DriverManager.getConnection( /* 내용 생략 */ );
 		} catch(Exception e) {
 			System.out.println("Exception Occurred");
 		}
