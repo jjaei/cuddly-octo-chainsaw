@@ -13,9 +13,9 @@ public class Ex38_DBConnect {
 		try {
 			Class.forName("org.mariadb.jdbc.Driver");
 			conn = DriverManager.getConnection(
-					"jdbc:mariadb://localhost:3399/member",
-					"root",
-					"1234"
+					"jdbc:mariadb://localhost:포트넘버/데이터베이스명",
+					"이름",
+					"패스워드"
 					);
 		} catch(Exception e) {
 			System.out.println("Exception Occurred");
