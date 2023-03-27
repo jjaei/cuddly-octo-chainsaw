@@ -18,7 +18,7 @@ public class Ex38_HospitalVO {
 	
 	public String toString() {
 		String str = "병원의 시도는 " + sido_cd_nm + ", 시군구는 " + siggu_cd_nm + "입니다.\n"
-		+ "완벽한 주소는 " + addr + "인데, 찾아오시면 안 됩니다!";
+		+ "완벽한 주소는 " + addr + "인데, 찾아오시면 안 됩니다!!";
 		return str;
 	}
 }
