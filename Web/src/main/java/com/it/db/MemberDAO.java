@@ -5,8 +5,8 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
-public class MemberDAO {
 
+public class MemberDAO {
 	Connection conn = null;
 	Statement stmt = null;
 	ResultSet rs = null;
@@ -20,12 +20,14 @@ public class MemberDAO {
 					"jdbc:mariadb://localhost:3399/member",
 					"root",
 					"1234"
-					);	
-		} catch(Exception e) {e.printStackTrace();}
-	
-	
-		if(conn != null)
-			System.out.println("[MemberDAO : MemberDAO()] DB Conneced OK!");
+					);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		if(conn != null) 
+			System.out.println("[MemberDAO: MemberDAO()] DB Connected OK!");
 	}
 	
 	// insert
@@ -34,20 +36,21 @@ public class MemberDAO {
 		String id = vo.getId();
 		String name = vo.getName();
 		
-		String sql = "insert into member values(" + memberno + ",'" + id + "','" + name + "')";
+		String sql = "insert into member values(" + memberno + ",'" + id + "','" + name +"')";
 		System.out.println(sql);
 		
 		int result = 0;
 		try {
-			stmt = conn.createStatement();
-			result=stmt.executeUpdate(sql);
-		} catch(Exception e) {e.printStackTrace();}
+		stmt = conn.createStatement();
+		result = stmt.executeUpdate(sql);
+		} catch (Exception e) {e.printStackTrace();}
 		return result;
 	}
-
+	
 	// select
 	public ResultSet select(MemberVO vo) {
 		ResultSet rs = null;
+		
 		String sql = "select * from member where 1=1";
 		if(vo.getMemberNo() != 0) 
 			sql += " and memberno = " + vo.getMemberNo();	
