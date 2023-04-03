@@ -15,6 +15,7 @@ import jakarta.servlet.http.HttpServletResponse;
 
 @WebServlet({"/Member", "/Join"})
 public class MemberServlet extends HttpServlet {
+	
 	public MemberServlet() {
 		super();
 		System.out.println("MemberServlet:MemberServlet()] Instance Created");
