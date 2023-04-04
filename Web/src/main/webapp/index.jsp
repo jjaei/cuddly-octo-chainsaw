@@ -18,5 +18,9 @@
 			<button></button> : 누르면 submit 함.
 		-->
 	</form><br>
+	<a href="01_script_test1.jsp">01_script_test1</a><br>
+	<a href="01_script_test2.jsp">01_script_test2</a><br>
+	<a href="01_script_test3.jsp">01_script_test3(현재 시간)</a><br>
+	<a href="01_script_test4.jsp">01_script_test4(테이블)</a><br>
 </body>
 </html>
