@@ -22,5 +22,8 @@
 	<a href="01_script_test2.jsp">01_script_test2</a><br>
 	<a href="01_script_test3.jsp">01_script_test3(현재 시간)</a><br>
 	<a href="01_script_test4.jsp">01_script_test4(테이블)</a><br>
+	<a href="02_directive.jsp">02_directive(현재 시간)</a><br>
+	<a href="03_error_page.jsp">03_error_page</a><br>
+	<a href="04_include.jsp">04_include(다른 페이지 포함하기)</a><br>
 </body>
 </html>
