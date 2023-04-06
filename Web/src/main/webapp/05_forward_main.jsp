@@ -14,7 +14,7 @@
 	<select name="site">
 		<option value="naver">네이버</option>
 		<option value="youtube">유튜브</option>
-		<option value="구글">구글</option>	
+		<option value="google">구글</option>	
 	</select>
 	<input type="submit" value=transfer>
 	</form>
