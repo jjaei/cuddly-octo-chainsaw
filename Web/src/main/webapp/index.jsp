@@ -25,5 +25,6 @@
 	<a href="02_directive.jsp">02_directive(현재 시간)</a><br>
 	<a href="03_error_page.jsp">03_error_page</a><br>
 	<a href="04_include.jsp">04_include(다른 페이지 포함하기)</a><br>
+	<a href="05_forward_main.jsp">05_forward(다른 페이지 이동하기)</a><br>
 </body>
 </html>
