@@ -29,7 +29,7 @@ public class MemberServlet extends HttpServlet {
 		String id = request.getParameter("id");
 		
 		String name = request.getParameter("name");
-		vo.setMemberNo(memberno);
+		vo.setMemberno(memberno);
 		vo.setId(id);
 		vo.setName(name);
 		
