@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.ArrayList;
 
 
 public class MemberDAO {
@@ -65,4 +66,29 @@ public class MemberDAO {
 		} catch(Exception e) {e.printStackTrace();}
 		return rs;
 	}
+	
+	// select 전건
+	public ArrayList select() {
+		String sql = "select * from member";
+		ArrayList<MemberVO> members = new ArrayList();
+		
+		System.out.println("[MemberDAO:select()] Called");
+		try {
+			stmt = conn.createStatement();
+			rs = stmt.executeQuery(sql);
+			
+			MemberVO member;
+			while(rs.next()) {
+				member = new MemberVO();
+				member.setMemberno(rs.getInt("memberno"));
+				System.out.println("[MemberDAO:select()] memberno : " + rs.getInt("memberno"));
+				member.setId(rs.getString("id"));
+				member.setName(rs.getString("name"));
+				members.add(member);
+			}
+		} catch (Exception e) {e.printStackTrace();}
+		
+		return members;
+	}
+	
 }
