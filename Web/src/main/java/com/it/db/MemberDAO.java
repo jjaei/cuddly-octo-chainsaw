@@ -2,6 +2,7 @@ package com.it.db;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
@@ -89,6 +90,25 @@ public class MemberDAO {
 		} catch (Exception e) {e.printStackTrace();}
 		
 		return members;
+	}
+	
+	// 이름 중복검사 메서드
+	public boolean checkName(String name) {
+		String sql = "select 1 from member where name = ?";
+		PreparedStatement pstmt = null;
+		boolean check = false;
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, name);
+			rs = pstmt.executeQuery();
+			
+			// rs.next()가 true라는 것은 이름이 있음을 의미한다.
+			if(rs.next()) {
+				check = true;
+			}
+		} catch(Exception e) {e.printStackTrace();}
+		return check;
 	}
 	
 }
