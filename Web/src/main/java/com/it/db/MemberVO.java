@@ -6,11 +6,11 @@ public class MemberVO {
 	private String id;
 	private String name;
 	
-	public int getMemberNo() {return memberno;}
+	public int getMemberno() {return memberno;}
 	public String getId() {return id;}
 	public String getName() {return name;}
 	
-	public void setMemberNo(int memberno) {this.memberno = memberno;}
+	public void setMemberno(int memberno) {this.memberno = memberno;}
 	public void setId(String id) {this.id = id;}
 	public void setName(String name) {this.name = name;}
 	
