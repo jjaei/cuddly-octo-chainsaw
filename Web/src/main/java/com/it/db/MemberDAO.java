@@ -32,7 +32,7 @@ public class MemberDAO {
 	
 	// insert
 	public int insert(MemberVO vo) {
-		int memberno = vo.getMemberNo();
+		int memberno = vo.getMemberno();
 		String id = vo.getId();
 		String name = vo.getName();
 		
@@ -52,8 +52,8 @@ public class MemberDAO {
 		ResultSet rs = null;
 		
 		String sql = "select * from member where 1=1";
-		if(vo.getMemberNo() != 0) 
-			sql += " and memberno = " + vo.getMemberNo();	
+		if(vo.getMemberno() != 0) 
+			sql += " and memberno = " + vo.getMemberno();	
 		if(vo.getId() != null) 
 			sql += " and id = '" + vo.getId() + "'";
 		if(vo.getName() != null)
