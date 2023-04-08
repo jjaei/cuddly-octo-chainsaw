@@ -26,7 +26,6 @@
 		if(name==null){
 			name="";
 		}
-		
 	%>
 	
 	<h1>Join Our Luxury Club</h1>
@@ -35,12 +34,12 @@
 	<input type="hidden" value="<%=check%>" name="check">
 	
 	<form action="09_join_ok.jsp" name="joinForm">
-		<fleidset>
+		<fieldset>
 			<legend>Fill the Blank</legend>
 			이름 : <input type="text" name="name" value="<%=name%>"><br>
 			결과 : <p id="result"></p>
-			<input type="submit" value="Transfer" />
-		</fleidset>
+			<input type="button" value="Transfer" onclick="sendIt()" />
+		</fieldset>
 	</form>
 </body>
 <script src="//code.jquery.com/jquery-3.6.4.min.js"></script>
@@ -53,5 +52,13 @@
 			$("p#result").text("가입을 축하드립니다.");
 		}
 	}
+	
+	function sendIt() {
+		if($("input[name='name']").val() == ""){
+			alert("이름을 입력하지 않으면 가입할 수 없습니다.");
+			return false;
+		}
+		document.joinForm.submit();
+		}
 </script>
 </html>
