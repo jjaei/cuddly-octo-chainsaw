@@ -28,5 +28,7 @@
 	<a href="05_forward_main.jsp">05_forward(다른 페이지 이동하기)</a><br>
 	<a href="06_param_test.jsp">06_param_test(파라미터 넘겨주기)</a><br>
 	<a href="07_javabeans.jsp">07_javabeans(자바빈즈)</a><br>
+	<a href="08_object_test.jsp">08_Object</a><br>
+	<a href="09_join.jsp">09_Join_example</a><br>
 </body>
 </html>
