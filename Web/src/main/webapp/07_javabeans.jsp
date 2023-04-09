@@ -10,7 +10,7 @@
 <head>
 <meta charset="UTF-8">
 <title>JavaBeans Test</title>
-<link rel="stylesheet" type="text/css" href="./bootstrap.min.css">
+<link rel="stylesheet" href="bootstrap.min.css">
 </head>
 <body>
 	<h1>Welcome to JavaBeans!</h1>
