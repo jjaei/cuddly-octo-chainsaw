@@ -31,5 +31,6 @@
 	<a href="08_object_test.jsp">08_Object</a><br>
 	<a href="09_join.jsp">09_Join_example</a><br>
 	<a href="10_ajax_test.jsp">10_Ajax</a><br>
+	<a href="11_json_test.jsp">11_JSON_test</a><br>
 </body>
 </html>
