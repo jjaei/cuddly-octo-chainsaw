@@ -40,8 +40,8 @@ public class MyBatisConfig {
 	@Bean
 	public DataSource dataSource() {
 		HikariDataSource hds = new HikariDataSource(hikariConfig());
-		log.info("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
-		log.info("Datasource : " + hds);
+//		log.info("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+//		log.info("Datasource : " + hds);
 		return hds;
 //		return new HikariDataSource(hikariConfig());
 	}
