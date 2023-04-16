@@ -1,4 +1,4 @@
-package com.it.example.mapper;
+package com.it.example.mappers;
 
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Service;
