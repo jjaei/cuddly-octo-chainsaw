@@ -1,13 +1,16 @@
 package com.it.example.controllers;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.it.example.beans.vo.ExampleVO;
 
+import jakarta.servlet.http.HttpServletRequest;
 import lombok.extern.slf4j.Slf4j;
 
 @Controller
@@ -38,5 +41,43 @@ public class ExampleController {
 		vo.setName("Jam");
 		vo.setAge(10);
 		return "example04";
+	}
+	
+	@GetMapping("/ex06")
+	public String example06(HttpServletRequest req) {
+		String name = req.getParameter("name");
+		int age = Integer.parseInt(req.getParameter("age"));
+		ExampleVO vo = new ExampleVO();
+		vo.setName(name);
+		vo.setAge(age);
+		log.info(vo.toString());
+		return "index";
+	}
+	
+	// getParameter 없이 자동으로 데이터 매핑하기
+	@GetMapping("/ex07")
+	public String example07(ExampleVO vo, String gender) {
+		log.info(vo.toString());
+		log.info(gender);
+		return "index";
+	}
+	
+	// 파라미터 이름과 매개변수 이름이 다를 때
+	@GetMapping("/ex08")
+	public String example08(ExampleVO vo, @RequestParam("data")String gender) {
+		log.info(vo.toString());
+		log.info(gender);
+		return "index";
+	}
+	
+	// 여러 다른 종류의 파라미터를 보내줘야 할 때
+	@GetMapping("/ex09")
+	public String example09(ExampleVO vo, @RequestParam("gender")String gender, Model model) {
+		log.info(vo.toString());
+		log.info(gender);
+		model.addAttribute("vo", vo);
+		model.addAttribute("gender", gender);
+		model.addAttribute("today", "simsim");
+		return "example09";
 	}
 }
