@@ -33,7 +33,7 @@ public class MyBatisConfig {
 	
 	// 1 Property 가져오기
 	@Bean
-	@ConfigurationProperties(prefix="spring.datasource")
+	@ConfigurationProperties(prefix="spring.datasource.hikari")
 	public HikariConfig hikariConfig() {
 		return new HikariConfig();
 	}
