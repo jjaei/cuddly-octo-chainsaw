@@ -1,9 +1,12 @@
 package com.it.example.controllers;
 
+import java.util.Calendar;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -79,5 +82,65 @@ public class ExampleController {
 		model.addAttribute("gender", gender);
 		model.addAttribute("today", "simsim");
 		return "example09";
+	}
+	
+	@GetMapping("/ex10")
+	public String example10() {
+		log.info("------- example10 called -------");
+		return "example10_login";
+	}
+	
+	@PostMapping("/ex10_login")
+	public String example10_login(String id, String pw) {
+		log.info("--------------------------------");
+		log.info("id = " + id);
+		log.info("--------------------------------");
+		if(id.equals("admin")) {
+			return "example10_admin";
+		} else {
+			return "example10_user";
+		}
+	}
+	
+	@GetMapping("/ex11")
+	public String checkIn() {
+		return "example11_checkIn";
+	}
+	
+	@GetMapping("/ex11_getToWork")
+	public String getToWork(String name) {
+		log.info("--------------------Get To Work");
+		Calendar c = Calendar.getInstance();
+		int hour = c.get(Calendar.HOUR_OF_DAY);
+		int minute = c.get(Calendar.MINUTE);
+		
+		boolean late = (hour == 9 && minute > 0) || (hour >=9); 
+		if(late) {
+			return "example11_late";
+		}
+		
+		return "example11_work";
+	
+	}
+	
+	@GetMapping("/ex11_leaveWork")
+	public String leaveWork(@ModelAttribute("name") String name) {
+		log.info("--------------------Leave Work");
+		log.info("--------------------Get To Work");
+		Calendar c = Calendar.getInstance();
+		int hour = c.get(Calendar.HOUR_OF_DAY);
+		int minute = c.get(Calendar.MINUTE);
+		
+		// 18시 00분도 퇴근하면 안 된다고 가정
+		boolean early = (hour < 18) || (hour == 18 && minute==0 );
+		
+		// input parameter에 @ModelAttribute이 있을 경우 모델이 그대로 전달 됨.
+		// 추가 모델이 필요한 경우 input parameter에 Model을 추가하고
+		// addAttribute를 추가해서 데이터를 보낼 수 있음.
+		// model.addAttribute("name",name);
+		if(early) {
+			return "example11_early";
+		}
+		return "example11_leave";
 	}
 }
