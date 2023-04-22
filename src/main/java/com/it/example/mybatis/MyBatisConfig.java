@@ -56,6 +56,7 @@ public class MyBatisConfig {
 		
 		// SQL query를 작성할 xml 경로 설정
 		sfb.setMapperLocations(applicationContext.getResources("classpath*:/mappers/*.xml"));
+		sfb.setConfigLocation(applicationContext.getResource("classpath:/config/config.xml"));
 		
 		try {
 			SqlSessionFactory factory = sfb.getObject();
