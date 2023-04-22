@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Example11</title>
+</head>
+<body>
+	<h1 th:text="${name + '님 지금 몇 신데 집에 가세요?'}">왜 벌써 집에 가세요?</h1>
+	<hr>
+	<h1><th:block th:text="${name}"></th:block>님 지금 몇 신데 집에 가세요?</h1>
+	<input type="button" th:value="${name}">
+</body>
+</html>
