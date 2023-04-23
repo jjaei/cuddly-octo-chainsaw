@@ -7,4 +7,8 @@
 		SELECT * FROM TBL_BOARD WHERE BNO > 0
 		]]>
 	</select>
+	<insert id="insert">
+		INSERT INTO TBL_BOARD(BNO, TITLE, CONTENT, WRITER) VALUES(NEXTVAL(SEQ_BOARD), #{title}, #{content}, #{writer})
+		<!-- #{}을 써주면 VO에서 알아서 꺼내옴. -->
+	</insert>
 </mapper>
