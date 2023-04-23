@@ -9,7 +9,7 @@ import com.it.example.beans.dao.BoardDAO;
 import com.it.example.beans.vo.BoardVO;
 
 @Service
-public class BoardServiceimp implements BoardService {
+public class BoardServiceImp implements BoardService {
 	@Autowired
 	private BoardDAO boardDAO;
 	
