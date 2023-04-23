@@ -2,6 +2,7 @@ package com.it.example.beans.dao;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.it.example.beans.vo.BoardVO;
@@ -12,6 +13,7 @@ import lombok.RequiredArgsConstructor;
 @Repository  // Component의 자식 annotation
 @RequiredArgsConstructor
 public class BoardDAO {
+	@Autowired
 	private BoardMapper mapper;
 	
 	// 게시글 입력
