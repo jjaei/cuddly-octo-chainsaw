@@ -10,4 +10,7 @@ import com.it.example.beans.vo.BoardVO;
 public interface BoardMapper {
 	// 게시글 목록
 	public List<BoardVO> getList();
+	
+	// 게시물 등록
+	public void insert(BoardVO board);
 }
