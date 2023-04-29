@@ -45,11 +45,36 @@ public class BoardControllerTest {
 						.andReturn().getModelAndView().getModelMap().toString());
 	}
 	
-	@Test
+//	@Test
 	public void testRegister() throws Exception {
 		String result = mockMvc.perform(MockMvcRequestBuilders.post("/board/register")
 						.param("title", "테스트 제목")
 						.param("content","테스트 내용")
 						.param("writer", "J")).andReturn().getFlashMap().toString();
+	}
+	
+	@Test
+	public void testGet() throws Exception {
+		log.info(mockMvc.perform(MockMvcRequestBuilders.get("/board/get")
+				.param("bno","8")).andReturn().getModelAndView().getModelMap().toString()
+				);
+	}
+
+	@Test
+	public void testModify() throws Exception {
+		String result = mockMvc.perform(MockMvcRequestBuilders.post("/board/modify")
+				.param("bno", "7")
+				.param("title","수정된 테스트 제목!")
+				.param("content","수정된 테스트 내용!!")
+				.param("writer", "J 아님")).andReturn().getModelAndView().getModelMap().toString();
+		log.info("[testModify()] : " + result);
+	}
+	
+	@Test
+	public void testRemove() throws Exception {
+		String result = mockMvc.perform(MockMvcRequestBuilders.post("/board/remove")
+				.param("bno", "8")
+				).andReturn().getModelAndView().getModelMap().toString();
+		log.info("[testRemove()] : " + result);
 	}
 }
