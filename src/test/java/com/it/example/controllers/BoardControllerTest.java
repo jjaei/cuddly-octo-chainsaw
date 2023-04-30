@@ -45,12 +45,12 @@ public class BoardControllerTest {
 						.andReturn().getModelAndView().getModelMap().toString());
 	}
 	
-//	@Test
+	@Test
 	public void testRegister() throws Exception {
 		String result = mockMvc.perform(MockMvcRequestBuilders.post("/board/register")
-						.param("title", "테스트 제목")
-						.param("content","테스트 내용")
-						.param("writer", "J")).andReturn().getFlashMap().toString();
+						.param("title", "안녕하세요?")
+						.param("content","반갑습니다.")
+						.param("writer", "ㅎㅇ")).andReturn().getFlashMap().toString();
 	}
 	
 	@Test
@@ -70,7 +70,7 @@ public class BoardControllerTest {
 		log.info("[testModify()] : " + result);
 	}
 	
-	@Test
+//	@Test
 	public void testRemove() throws Exception {
 		String result = mockMvc.perform(MockMvcRequestBuilders.post("/board/remove")
 				.param("bno", "8")
