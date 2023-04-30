@@ -81,8 +81,11 @@ public class BoardController {
 	}
 	
 	@GetMapping("modify")
-	public void modify() {
-		
+	public void modify(@RequestParam("bno") Long bno, Model model) {
+		log.info("--------------------------------");
+		log.info("[Modify] " + bno);
+		log.info("--------------------------------");
+		model.addAttribute("board", service.get(bno));
 	}
 	
 	@PostMapping("remove")
