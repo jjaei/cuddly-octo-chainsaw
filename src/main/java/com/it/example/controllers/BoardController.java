@@ -46,7 +46,7 @@ public class BoardController {
 	}
 	
 	@GetMapping({"get", "get2"})
-	public void get(Long bno, HttpServletRequest request, Model model) {
+	public void get(@RequestParam("bno") Long bno, HttpServletRequest request, Model model) {
 		String reqURI = request.getRequestURI();
 		String reqContextPath = request.getContextPath();
 		String reqType = reqURI.substring(reqURI.indexOf(reqContextPath) + 7);
