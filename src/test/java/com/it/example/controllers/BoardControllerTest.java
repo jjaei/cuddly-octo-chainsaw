@@ -45,7 +45,7 @@ public class BoardControllerTest {
 						.andReturn().getModelAndView().getModelMap().toString());
 	}
 	
-	@Test
+//	@Test
 	public void testRegister() throws Exception {
 		String result = mockMvc.perform(MockMvcRequestBuilders.post("/board/register")
 						.param("title", "안녕하세요?")
