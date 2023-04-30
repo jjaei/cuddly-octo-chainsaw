@@ -5,6 +5,7 @@
 	<select id="getList" resultType="boardVO">
 		<![CDATA[ 
 		SELECT * FROM TBL_BOARD WHERE BNO > 0
+		ORDER BY BNO DESC
 		]]>
 	</select>
 	<insert id="insert">
