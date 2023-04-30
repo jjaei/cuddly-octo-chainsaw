@@ -80,6 +80,11 @@ public class BoardController {
 		return new RedirectView("list");
 	}
 	
+	@GetMapping("modify")
+	public void modify() {
+		
+	}
+	
 	@PostMapping("remove")
 	// 변수명이 같은 경우 @RequestParam를 쓸 필요는 없으나 
 	// 명시적으로 지정할 경우 유지보수 중 파라미터 추가 시 발생할 수 있는 예외를 막아준다.
