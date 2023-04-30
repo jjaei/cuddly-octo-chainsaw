@@ -45,6 +45,11 @@ public class BoardController {
 		return new RedirectView("list");
 	}
 	
+	@GetMapping("register")
+	public void register() {
+		
+	}
+	
 	@GetMapping({"get", "get2"})
 	public void get(@RequestParam("bno") Long bno, HttpServletRequest request, Model model) {
 		String reqURI = request.getRequestURI();
