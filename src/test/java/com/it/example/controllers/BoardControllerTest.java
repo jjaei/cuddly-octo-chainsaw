@@ -60,7 +60,7 @@ public class BoardControllerTest {
 				);
 	}
 
-	@Test
+//	@Test
 	public void testModify() throws Exception {
 		String result = mockMvc.perform(MockMvcRequestBuilders.post("/board/modify")
 				.param("bno", "7")
@@ -70,10 +70,10 @@ public class BoardControllerTest {
 		log.info("[testModify()] : " + result);
 	}
 	
-//	@Test
+	@Test
 	public void testRemove() throws Exception {
 		String result = mockMvc.perform(MockMvcRequestBuilders.post("/board/remove")
-				.param("bno", "8")
+				.param("bno", "16")
 				).andReturn().getModelAndView().getModelMap().toString();
 		log.info("[testRemove()] : " + result);
 	}
