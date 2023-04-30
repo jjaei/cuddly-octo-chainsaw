@@ -81,7 +81,7 @@ public class BoardController {
 	}
 	
 	@GetMapping("modify")
-	public void modify(@RequestParam("bno") Long bno, Model model) {
+	public void modify(@RequestParam("bno")  Long bno, Model model) {
 		log.info("--------------------------------");
 		log.info("[Modify] " + bno);
 		log.info("--------------------------------");
