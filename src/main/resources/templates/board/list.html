@@ -16,6 +16,7 @@
 <title>List</title>
 </head>
 <body>
+<div class="col-md-10" style="float:none; margin: 0 auto;">
 	<div class="wrapper">
 			<!-- Elements -->
 			<header class="major">
@@ -24,9 +25,9 @@
 				<p>게시물 목록</p>
 			</header>
 			<!-- Table -->
-			<h3><a href="">Write</a></h3>
-			<div class="table-wrapper">
-				<table class="table">
+			<h3><a href="/board/register">Write</a></h3>
+			<div class="table-wrapper col-md-8">
+				<table class="table" >
 					<thead>
 						<tr class="tHead">
 							<th class="bno">글 번호</th>
@@ -55,5 +56,26 @@
 				</table>
 			</div>
 	</div>
+</div>
 </body>
+<!-- <script th:src="@{/js/jquery.js}"></script>  -->
+<script
+  src="https://code.jquery.com/jquery-3.6.4.js"
+  integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E="
+  crossorigin="anonymous"></script>
+<script th:inline="javascript">
+
+	let bno = [[${bno}]];
+	console.log(bno);
+	
+	$(document).ready(function(){
+		if(bno == '') {
+			return;
+		}
+		if(parseInt(bno) > 0){
+			alert('Bulletin ' + parseInt(bno) + ' was registered.');
+		}
+	});
+	
+</script>
 </html>
