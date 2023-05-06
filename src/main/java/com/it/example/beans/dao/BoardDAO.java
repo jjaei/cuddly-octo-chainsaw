@@ -44,6 +44,12 @@ public class BoardDAO {
 	
 	// 전체 게시글 가져오기(페이징 처리)
 	public List<BoardVO> getList(Criteria cri) {
+		cri.setParam();
 		return mapper.getListWithPaging(cri);
+	}
+	
+	// 게시글 개수
+	public int getTotal() {
+		return mapper.getTotal();
 	}
 }
