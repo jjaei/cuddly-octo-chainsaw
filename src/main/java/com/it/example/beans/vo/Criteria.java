@@ -13,8 +13,8 @@ public class Criteria {  // 게시글 검색의 기준
 	private int offset;
 	
 	public Criteria() {
-		this(0, 10);
-//		pageNum = 0;
+		this(1, 10);
+//		pageNum = 1;
 //		amount = 10;
 	}
 	
