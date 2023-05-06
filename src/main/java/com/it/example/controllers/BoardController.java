@@ -10,6 +10,8 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.servlet.view.RedirectView;
 
 import com.it.example.beans.vo.BoardVO;
+import com.it.example.beans.vo.Criteria;
+import com.it.example.beans.vo.PageDTO;
 import com.it.example.services.BoardService;
 
 import jakarta.servlet.http.HttpServletRequest;
@@ -24,11 +26,23 @@ public class BoardController {
 	private final BoardService service;
 	
 	@GetMapping("list")
-	public void list(Model model) {
+	public void list(Criteria cri, Model model) {
 		log.info("----------------------------");
 		log.info("[BoardController] list() : ");
 		log.info("----------------------------");
-		model.addAttribute("list", service.getList());
+		if(cri == null) {
+			model.addAttribute("list", service.getList(new Criteria(1, 10)));
+		} else {
+			model.addAttribute("list", service.getList(cri));
+		}
+		
+		model.addAttribute("pageMaker", new PageDTO(cri, 123));
+	
+//	public void list(Model model) {
+//		log.info("----------------------------");
+//		log.info("[BoardController] list() : ");
+//		log.info("----------------------------");
+//		model.addAttribute("list", service.getList());
 	}
 	
 	@PostMapping("register")

@@ -39,9 +39,16 @@ public class BoardControllerTest {
 	}
 	
 	// 해당 경로의 응답 페이지가 없다면 오류 발생
-	@Test
+//	@Test
 	public void testList( ) throws Exception {
 		log.info( mockMvc.perform(MockMvcRequestBuilders.get("/board/list"))
+						.andReturn().getModelAndView().getModelMap().toString());
+	}
+	
+	@Test
+	public void testListWithPaging() throws Exception {
+		log.info( mockMvc.perform(MockMvcRequestBuilders.get("/board/list")
+						.param("pageNum", "1").param("amount", "7"))
 						.andReturn().getModelAndView().getModelMap().toString());
 	}
 	
