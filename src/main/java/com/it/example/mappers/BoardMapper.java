@@ -5,9 +5,13 @@ import java.util.List;
 import org.apache.ibatis.annotations.Mapper;
 
 import com.it.example.beans.vo.BoardVO;
+import com.it.example.beans.vo.Criteria;
 
 @Mapper
 public interface BoardMapper {
+	// 게시글 목록(페이징 처리)
+	public List<BoardVO> getListWithPaging(Criteria cri);
+	
 	// 게시글 목록
 	public List<BoardVO> getList();
 	
