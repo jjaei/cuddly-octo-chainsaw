@@ -1,5 +1,7 @@
 package com.it.example.mappers;
 
+import java.util.List;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,6 +9,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.it.example.beans.vo.BoardVO;
+import com.it.example.beans.vo.Criteria;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -17,6 +20,17 @@ public class BoardMapperTest {
 
 	@Autowired
 	private BoardMapper mapper;
+	
+	@Test
+	public void testGetListWithPaging() {
+		Criteria cri = new Criteria();
+		
+		cri.setAmount(5);
+		cri.setPageNum(0);
+		
+		List<BoardVO> list = mapper.getListWithPaging(cri);
+		list.forEach(board -> log.info("---------------------" + board.getBno()+""));
+	}
 	
 	@Test
 	public void testGetList() {
