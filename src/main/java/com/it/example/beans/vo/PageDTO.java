@@ -33,7 +33,7 @@ public class PageDTO {
 		log.info("-----------------realEnd :  "  + realEnd); 
 		
 		if(realEnd < this.endPage) {
-			endPage = (realEnd == 0 ? 1 : realEnd);
+			endPage = realEnd == 0 ? 1 : realEnd;
 		}
 		
 		prev = startPage > 1;
