@@ -15,15 +15,17 @@ public class PageDTO {
 	private boolean prev, next;
 	
 	private int total;
-	private Criteria criteria;
+	private Criteria cri;
 	
 	public PageDTO() {}
 	
 	public PageDTO(Criteria cri, int total) {
-		this.criteria = cri;
+		this.cri = cri;
 		this.total = total;
 		
-		endPage =cri.getPageNum();
+		// endPage가 1 ... 10까지는 startPage가 1이어야 함.
+		// endPage가 11이 넘어가면 startPage는 11이 됨.
+		endPage =(int)(Math.ceil(cri.getPageNum() / 10.0)) * 10;
 		startPage = endPage - 9;
 		
 		realEnd = (int)(Math.ceil((total * 1.0)  / cri.getAmount()));
