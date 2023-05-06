@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.it.example.beans.vo.BoardVO;
+import com.it.example.beans.vo.Criteria;
 import com.it.example.mappers.BoardMapper;
 
 import lombok.RequiredArgsConstructor;
@@ -39,5 +40,10 @@ public class BoardDAO {
 	// 전체 게시글 가져오기
 	public List<BoardVO> getList() {
 		return mapper.getList();
+	}
+	
+	// 전체 게시글 가져오기(페이징 처리)
+	public List<BoardVO> getList(Criteria cri) {
+		return mapper.getListWithPaging(cri);
 	}
 }
