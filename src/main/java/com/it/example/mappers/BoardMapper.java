@@ -9,6 +9,9 @@ import com.it.example.beans.vo.Criteria;
 
 @Mapper
 public interface BoardMapper {
+	// 게시글 개수
+	public int getTotal();
+	
 	// 게시글 목록(페이징 처리)
 	public List<BoardVO> getListWithPaging(Criteria cri);
 	
