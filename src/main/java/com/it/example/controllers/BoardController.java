@@ -30,13 +30,9 @@ public class BoardController {
 		log.info("----------------------------");
 		log.info("[BoardController] list() : ");
 		log.info("----------------------------");
-		if(cri == null) {
-			model.addAttribute("list", service.getList(new Criteria(1, 10)));
-		} else {
-			model.addAttribute("list", service.getList(cri));
-		}
-		
-		model.addAttribute("pageMaker", new PageDTO(cri, 123));
+
+		model.addAttribute("list", service.getList(cri));
+		model.addAttribute("pageMaker", new PageDTO(cri, service.getTotal()));
 	
 //	public void list(Model model) {
 //		log.info("----------------------------");
