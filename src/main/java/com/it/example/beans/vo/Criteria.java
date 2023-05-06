@@ -24,4 +24,9 @@ public class Criteria {  // 게시글 검색의 기준
 		this.limit = pageNum * amount;
 		this.offset = (pageNum - 1) * amount;
 	}
+	
+	public void setParam() {
+		this.limit = pageNum * amount;
+		this.offset = (pageNum - 1) * amount;
+	}
 }
