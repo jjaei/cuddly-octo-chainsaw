@@ -39,6 +39,9 @@
 		<![CDATA[ 
 		SELECT * FROM TBL_BOARD a 
 		WHERE BNO > 0
+		]]>
+		<include refid="criteria"></include>
+		<![CDATA[
 		ORDER BY BNO DESC
 		LIMIT #{limit} OFFSET #{offset}
 		]]>
