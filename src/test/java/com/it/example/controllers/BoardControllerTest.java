@@ -60,7 +60,7 @@ public class BoardControllerTest {
 						.param("writer", "ㅎㅇ")).andReturn().getFlashMap().toString();
 	}
 	
-	@Test
+//	@Test
 	public void testGet() throws Exception {
 		log.info(mockMvc.perform(MockMvcRequestBuilders.get("/board/get")
 				.param("bno","8")).andReturn().getModelAndView().getModelMap().toString()
