@@ -1,6 +1,7 @@
 package com.it.example.beans.vo;
 
 import org.springframework.stereotype.Component;
+import org.springframework.web.util.UriComponentsBuilder;
 
 import lombok.Data;
 
@@ -28,5 +29,12 @@ public class Criteria {  // 게시글 검색의 기준
 	public void setParam() {
 		this.limit = pageNum * amount;
 		this.offset = (pageNum - 1) * amount;
+	}
+	
+	public String getListLink() {
+		UriComponentsBuilder builder = UriComponentsBuilder.fromPath("")
+						.queryParam("pageNum", this.pageNum)
+						.queryParam("amount", this.getAmount());
+		return builder.toUriString();
 	}
 }
