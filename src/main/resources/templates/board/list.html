@@ -44,7 +44,8 @@
 						<th:block th:each="board:${list}" >
 							<tr class="tBody" th:object="${board}">
 								<td class="bno" th:text="*{bno}"></td>
-								<td class="title" ><a th:text="*{title}" th:href="@{/board/get(bno=*{bno})}"></a></td>
+				<!-- 		<td class="title" ><a th:text="*{title}" th:href="@{/board/get(bno=*{bno})}"></a></td> -->
+								<td class="title"><a id="goGet" th:text="*{title}" th:href="*{bno}"></a></td>
 								<td class="content" th:text= "*{content}"></td>
 								<td class= "writer" th:text= "*{writer}"></td>
 								<td class="regdate"  th:text= "*{regdate}"></td>
@@ -81,6 +82,8 @@
 	console.log(bno);
 	let pageForm = $(document.pageForm);
 	
+	let paging = [[${pageMaker.cri.listLink}]];
+	
 	$(document).ready(function(){
 		if(bno == '') {
 			return;
@@ -96,6 +99,12 @@
 		let pageNum = $(this).attr("href");
 		pageForm.find("input[name='pageNum']").val(pageNum);
 		pageForm.submit();
+	});
+	
+	$("a#goGet").on("click", function(e) {
+		e.preventDefault();
+		console.log("/board/read" + paging + "&bno=" + $(this).attr("href"));
+		location.href = "/board/get" + paging + "&bno=" + $(this).attr("href");
 	});
 </script>
 </html>
