@@ -49,7 +49,7 @@ public class BoardDAO {
 	}
 	
 	// 게시글 개수
-	public int getTotal() {
-		return mapper.getTotal();
+	public int getTotal(Criteria cri) {
+		return mapper.getTotal(cri);
 	}
 }

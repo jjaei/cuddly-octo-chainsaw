@@ -41,7 +41,7 @@ public class BoardServiceImp implements BoardService {
 	};
 	
 	@Override
-	public int getTotal() {
-		return boardDAO.getTotal();
+	public int getTotal(Criteria cri) {
+		return boardDAO.getTotal(cri);
 	};
 }
