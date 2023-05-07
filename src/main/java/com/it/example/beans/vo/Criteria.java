@@ -13,6 +13,10 @@ public class Criteria {  // 게시글 검색의 기준
 	private int limit;
 	private int offset;
 	
+	// 검색 기능을 위한 field 추가
+	private String type;
+	private String keyword;
+	
 	public Criteria() {
 		this(1, 10);
 //		pageNum = 1;
@@ -36,5 +40,10 @@ public class Criteria {  // 게시글 검색의 기준
 						.queryParam("pageNum", this.pageNum)
 						.queryParam("amount", this.getAmount());
 		return builder.toUriString();
+	}
+	
+	public String[] getTypeArr() {
+		// split("") : 모든 문자가 분리 됨 "ABC".split("")   -> "A" "B" "C"
+		return type == null ? new String[] {} : type.split(""); 
 	}
 }
