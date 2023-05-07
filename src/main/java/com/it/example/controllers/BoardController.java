@@ -61,7 +61,7 @@ public class BoardController {
 	}
 	
 	@GetMapping({"get", "get2"})
-	public void get(@RequestParam("bno") Long bno, HttpServletRequest request, Model model) {
+	public void get(@RequestParam("bno") Long bno, Criteria cri, HttpServletRequest request, Model model) {
 		String reqURI = request.getRequestURI();
 		String reqContextPath = request.getContextPath();
 		String reqType = reqURI.substring(reqURI.indexOf(reqContextPath) + 7);
@@ -73,6 +73,7 @@ public class BoardController {
 		log.info("----------------------------------------");
 		
 		model.addAttribute("board", service.get(bno));
+		model.addAttribute("cri", cri);
 	}
 	
 	@PostMapping("modify")
@@ -91,11 +92,12 @@ public class BoardController {
 	}
 	
 	@GetMapping("modify")
-	public void modify(@RequestParam("bno")  Long bno, Model model) {
+	public void modify(@RequestParam("bno")  Long bno, Criteria cri, Model model) {
 		log.info("--------------------------------");
 		log.info("[Modify] " + bno);
 		log.info("--------------------------------");
 		model.addAttribute("board", service.get(bno));
+		model.addAttribute("cri", cri);
 	}
 	
 	@PostMapping("remove")
