@@ -24,4 +24,7 @@ public interface ReplyMapper {
 	
 	// 댓글 목록
 	public List<ReplyVO> getListWithPaging(@Param("cri") Criteria cir, @Param("bno") Long bno);
+	
+	// 특정 rno, bno가 일치하는 글 가져오기(TEST)
+	public ReplyVO getTest(Long rno, Long bno);
 }
