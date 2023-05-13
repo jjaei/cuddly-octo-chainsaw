@@ -1,7 +1,11 @@
 package com.it.example.mappers;
 
-import org.apache.ibatis.annotations.Mapper;
+import java.util.List;
 
+import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
+
+import com.it.example.beans.vo.Criteria;
 import com.it.example.beans.vo.ReplyVO;
 
 @Mapper
@@ -17,4 +21,7 @@ public interface ReplyMapper {
 	
 	// 댓글 수정
 	public int update(ReplyVO reply);
+	
+	// 댓글 목록
+	public List<ReplyVO> getListWithPaging(@Param("cri") Criteria cir, @Param("bno") Long bno);
 }
