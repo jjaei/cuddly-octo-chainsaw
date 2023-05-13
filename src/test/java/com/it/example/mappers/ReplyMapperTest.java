@@ -1,5 +1,6 @@
 package com.it.example.mappers;
 
+import java.util.List;
 import java.util.stream.IntStream;
 
 import org.junit.Test;
@@ -8,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import com.it.example.beans.vo.Criteria;
 import com.it.example.beans.vo.ReplyVO;
 
 import lombok.extern.slf4j.Slf4j;
@@ -49,7 +51,7 @@ public class ReplyMapperTest {
 		log.info(reply.toString());
 	}
 	
-	@Test
+//	@Test
 	public void testDelete() {
 		Long targetRno = 10L;
 		int deleteCount = mapper.delete(targetRno);
@@ -68,5 +70,14 @@ public class ReplyMapperTest {
 		
 		log.info("reply update -----------------");
 		log.info("update count : " + updateCount);
+	}
+	
+	@Test
+	public void testList() {
+		Criteria cri = new Criteria();
+		
+		List<ReplyVO> replies = mapper.getListWithPaging(cri, arBno[1]);
+		log.info("reply list-------------------");
+		replies.forEach(reply -> log.info(reply.toString()));
 	}
 }
