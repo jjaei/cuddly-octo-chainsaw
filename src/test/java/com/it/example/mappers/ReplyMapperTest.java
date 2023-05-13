@@ -48,4 +48,25 @@ public class ReplyMapperTest {
 		log.info("---------reply ok----------");
 		log.info(reply.toString());
 	}
+	
+	@Test
+	public void testDelete() {
+		Long targetRno = 10L;
+		int deleteCount = mapper.delete(targetRno);
+		
+		log.info("reply delete -----------------");
+		log.info("delete count : " + deleteCount);
+	}
+	
+	@Test
+	public void testUpdate() {
+		Long targetRno = 9L;
+		ReplyVO reply = mapper.read(targetRno);
+		reply.setReply("Update 완료");
+		
+		int updateCount = mapper.update(reply);
+		
+		log.info("reply update -----------------");
+		log.info("update count : " + updateCount);
+	}
 }
