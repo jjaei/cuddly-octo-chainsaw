@@ -26,4 +26,8 @@
 		ORDER BY RNO DESC
 		LIMIT #{cri.limit} OFFSET #{cri.offset}
 	</select>
+	<select id="getTest" resultType="replyVO">
+		SELECT * FROM TBL_REPLY
+		WHERE BNO=#{bno} AND RNO=#{rno}
+	</select>
 </mapper>
