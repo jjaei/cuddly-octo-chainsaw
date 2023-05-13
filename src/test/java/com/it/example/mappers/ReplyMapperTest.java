@@ -19,7 +19,7 @@ public class ReplyMapperTest {
 	@Autowired
 	private ReplyMapper mapper;
 
-	@Test
+//	@Test
 	public void testMapper() {
 		log.info("----------------------Mapper Test----------------------");
 		log.info(mapper.toString());
@@ -28,7 +28,7 @@ public class ReplyMapperTest {
 	// 자기 게시판에서 5개의 board 글을 선택합니다.
 	private Long[] arBno = {7L, 12L, 36L, 38L, 40L};
 	
-	@Test
+//	@Test
 	public void testInsert() {
 		// 5개의 게시글에 2개씩 댓글을 달아봅시다.
 		IntStream.rangeClosed(1, 10).forEach(i -> {
@@ -39,5 +39,13 @@ public class ReplyMapperTest {
 			reply.setReplier("Robot.A" + i);
 			mapper.insert(reply);
 		});
+	}
+	
+	@Test
+	public void testRead() {
+		Long targetBno = 38L;
+		ReplyVO reply = mapper.read(targetBno);
+		log.info("---------reply ok----------");
+		log.info(reply.toString());
 	}
 }
