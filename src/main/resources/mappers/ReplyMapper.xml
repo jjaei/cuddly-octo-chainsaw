@@ -6,4 +6,9 @@
 		INSERT INTO TBL_REPLY (RNO, BNO, REPLY, REPLIER)
 		VALUES (NEXTVAL(SEQ_REPLY), #{bno}, #{reply}, #{replier})
 	</insert>
+	<select id="read" resultType="replyVO">
+		SELECT RNO, BNO, REPLY, REPLIER, REPLYDATE, UPDATEDATE
+		FROM TBL_REPLY 
+		WHERE RNO = #{bno} 
+	</select>
 </mapper>
