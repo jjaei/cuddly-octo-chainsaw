@@ -83,7 +83,7 @@ public class ReplyMapperTest {
 	
 	@Test
 	public void testGetTest() {
-		ReplyVO reply = mapper.getTest(12L, 36L);
+		ReplyVO reply = mapper.getTest(9L, 40L);
 		log.info("reply test ----------------------");
 		log.info(reply.toString());
 	}
