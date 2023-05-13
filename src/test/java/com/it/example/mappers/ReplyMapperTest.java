@@ -80,4 +80,11 @@ public class ReplyMapperTest {
 		log.info("reply list-------------------");
 		replies.forEach(reply -> log.info(reply.toString()));
 	}
+	
+	@Test
+	public void testGetTest() {
+		ReplyVO reply = mapper.getTest(12L, 36L);
+		log.info("reply test ----------------------");
+		log.info(reply.toString());
+	}
 }
