@@ -43,8 +43,8 @@ public class ReplyMapperTest {
 	
 	@Test
 	public void testRead() {
-		Long targetBno = 38L;
-		ReplyVO reply = mapper.read(targetBno);
+		Long targetRno = 1L;
+		ReplyVO reply = mapper.read(targetRno);
 		log.info("---------reply ok----------");
 		log.info(reply.toString());
 	}

@@ -10,5 +10,5 @@ public interface ReplyMapper {
 	public int insert(ReplyVO reply);
 	
 	// 댓글 1개 조회
-	public ReplyVO read(Long bno);
+	public ReplyVO read(Long rno);
 }
