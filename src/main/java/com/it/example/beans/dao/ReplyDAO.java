@@ -2,6 +2,7 @@ package com.it.example.beans.dao;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.it.example.beans.vo.Criteria;
@@ -15,7 +16,7 @@ import lombok.extern.slf4j.Slf4j;
 @RequiredArgsConstructor
 @Slf4j
 public class ReplyDAO {
-	
+	@Autowired
 	private ReplyMapper mapper;
 	
 	public int register(ReplyVO reply) {
