@@ -19,4 +19,11 @@
 		SET REPLY = #{reply}, UPDATEDATE = SYSDATE()
 		WHERE RNO = #{rno}
 	</update>
+	<select id="getListWithPaging" resultType="replyVO">
+		SELECT RNO, BNO, REPLY, REPLIER, REPLYDATE, UPDATEDATE
+		FROM TBL_REPLY 
+		WHERE BNO = #{bno}
+		ORDER BY RNO DESC
+		LIMIT #{limit} OFFSET #{offset}
+	</select>
 </mapper>
