@@ -10,5 +10,6 @@
 		SELECT RNO, BNO, REPLY, REPLIER, REPLYDATE, UPDATEDATE
 		FROM TBL_REPLY 
 		WHERE RNO = #{bno} 
+		LIMIT 1;
 	</select>
 </mapper>
