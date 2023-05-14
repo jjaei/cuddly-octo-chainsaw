@@ -2,9 +2,11 @@ package com.it.example.controllers;
 
 import java.io.UnsupportedEncodingException;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -75,15 +77,22 @@ public class ReplyController {
 	// PUT : 자원의 전체 수정, 자원의 모든 필드를 전송해야 함, 일부만 전송하면 오류
 	// PATCH : 자원의 일부 수정, 수정할 필드만 전송
 	// PATCH가 PUT을 포함하므로 전체를 전달받아 수정하거나 부분만 수정하거나 모두 PATCH가 유리함.
-	@RequestMapping(method= {RequestMethod.PATCH}, value= "{rno}", consumes="application/json", produces="text/plain; charset=utf-8")
-	public ResponseEntity<String> modify(@RequestBody ReplyVO reply, @PathVariable("rno") Long rno)
+	@RequestMapping(method= {RequestMethod.PATCH}, value= {"/{rno}", "/{rno}/{replier}"}, consumes="application/json", produces="text/plain; charset=utf-8")
+	public ResponseEntity<String> modify(
+				@RequestBody ReplyVO replyVO, 
+				@PathVariable(value = "replier", required = false) String replier, 
+				@PathVariable("rno") Long rno)
 	throws UnsupportedEncodingException {
-		reply.setRno(rno);
+		replyVO.setRno(rno);
+		
 		int replyCount = 0;
 		log.info("modify -----------------------------------> " + rno);
-		log.info("modify : " + reply);
+		log.info("modify : " + replyVO);
+		if(replyVO.getReplier() == null) {
+			replyVO.setReplier(Optional.ofNullable(replier).orElse("anonymous"));
+		}
 		
-		replyCount = replyService.modify(reply);
+		replyCount = replyService.modify(replyVO);
 		
 		if(replyCount == 1) {
 			return new ResponseEntity<>(new String("댓글 수정 성공".getBytes(), "UTF-8"), HttpStatus.OK);
@@ -92,4 +101,11 @@ public class ReplyController {
 		}
 	}
 	
+	// 댓글 삭제
+	@DeleteMapping(value="{rno}", produces="text/plain; charset=utf-8")
+	public String remove(@PathVariable("rno") Long rno) {
+		log.info("remove -----------------------------------> " + rno);
+		
+		return replyService.remove(rno) == 1 ? "댓글 삭제 성공" : "댓글 삭제 실패";
+	}
 }
