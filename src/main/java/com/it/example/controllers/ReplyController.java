@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.it.example.beans.vo.Criteria;
@@ -68,6 +69,27 @@ public class ReplyController {
 		log.info("get ------------------------------->" + rno);
 		
 		return replyService.get(rno);
+	}
+	
+	// 댓글 수정
+	// PUT : 자원의 전체 수정, 자원의 모든 필드를 전송해야 함, 일부만 전송하면 오류
+	// PATCH : 자원의 일부 수정, 수정할 필드만 전송
+	// PATCH가 PUT을 포함하므로 전체를 전달받아 수정하거나 부분만 수정하거나 모두 PATCH가 유리함.
+	@RequestMapping(method= {RequestMethod.PATCH}, value= "{rno}", consumes="application/json", produces="text/plain; charset=utf-8")
+	public ResponseEntity<String> modify(@RequestBody ReplyVO reply, @PathVariable("rno") Long rno)
+	throws UnsupportedEncodingException {
+		reply.setRno(rno);
+		int replyCount = 0;
+		log.info("modify -----------------------------------> " + rno);
+		log.info("modify : " + reply);
+		
+		replyCount = replyService.modify(reply);
+		
+		if(replyCount == 1) {
+			return new ResponseEntity<>(new String("댓글 수정 성공".getBytes(), "UTF-8"), HttpStatus.OK);
+		} else {
+			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+		}
 	}
 	
 }
