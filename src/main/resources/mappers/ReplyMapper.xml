@@ -16,7 +16,7 @@
 	</delete>
 	<update id="update">
 		UPDATE TBL_REPLY
-		SET REPLY = #{reply}, UPDATEDATE = SYSDATE()
+		SET REPLY = #{reply}, REPLIER =#{replier} UPDATEDATE = SYSDATE()
 		WHERE RNO = #{rno}
 	</update>
 	<select id="getListWithPaging" resultType="replyVO">
@@ -30,4 +30,7 @@
 		SELECT * FROM TBL_REPLY
 		WHERE BNO=#{bno} AND RNO=#{rno}
 	</select>
+	<update id="update">
+		
+	</update>
 </mapper>
