@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.it.example.beans.vo.Criteria;
@@ -21,13 +20,13 @@ import com.it.example.services.ReplyService;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-
-@RestController   
+ 
 // ViewResolver를 사용하지 않고 리턴 값을 그대로 데이터로 사용
 // 내부 메서드는 REST 방식으로만 사용 가능함.
-@Slf4j
+@RestController  
 @RequiredArgsConstructor
 @RequestMapping("/replies/*")
+@Slf4j
 public class ReplyController {
 	private final ReplyService replyService;
 	
@@ -45,7 +44,7 @@ public class ReplyController {
 	public ResponseEntity<String> create(@RequestBody ReplyVO reply) throws UnsupportedEncodingException {
 			int insertCount = 0;
 			
-			log.info("--------------------------");
+			log.info("ReplyVO : insert --------------------------------");
 			log.info(reply.toString());
 			insertCount = replyService.register(reply);
 			
@@ -77,12 +76,12 @@ public class ReplyController {
 	// PUT : 자원의 전체 수정, 자원의 모든 필드를 전송해야 함, 일부만 전송하면 오류
 	// PATCH : 자원의 일부 수정, 수정할 필드만 전송
 	// PATCH가 PUT을 포함하므로 전체를 전달받아 수정하거나 부분만 수정하거나 모두 PATCH가 유리함.
-	@RequestMapping(method= {RequestMethod.PATCH}, value= {"/{rno}", "/{rno}/{replier}"}, consumes="application/json", produces="text/plain; charset=utf-8")
 	public ResponseEntity<String> modify(
-				@RequestBody ReplyVO replyVO, 
-				@PathVariable(value = "replier", required = false) String replier, 
-				@PathVariable("rno") Long rno)
+			@RequestBody ReplyVO replyVO,
+			@PathVariable(value = "replier", required = false) String replier,
+			@PathVariable("rno") Long rno) 
 	throws UnsupportedEncodingException {
+		
 		replyVO.setRno(rno);
 		
 		int replyCount = 0;
