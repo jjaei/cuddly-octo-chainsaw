@@ -188,6 +188,17 @@
 			e.preventDefault();
 			rnoValue = $(this).attr("href");
 			let newReply = $("." + rnoValue).val();
+			
+			if(newReply == "") {
+				return;
+			}
+			replyService.update({rno:rnoValue, reply:newReply},
+				function(result){
+					alert(result);
+					check = false;
+					showList(pageNum);
+				}	
+			);
 		});
 		
 		function showList(page){
