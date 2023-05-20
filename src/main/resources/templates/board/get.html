@@ -141,6 +141,54 @@
 			);
 			
 		});
+	
+		$(".replies").on("click", "a.remove", function(e){
+			e.preventDefault();
+			let rnoValue = $(this).attr("href");
+			console.log("rnoValue : " + rnoValue);
+			replyService.remove(rnoValue,
+				function(result){
+					alert(result);
+					showList(pageNum);
+				}
+			);
+		});
+		
+		let check = false;
+		$(".replies").on("click", "a.modify", function(e){
+			e.preventDefault();
+			if(check){
+				alert("수정 중인 댓글이 있습니다.");
+				return;
+			}
+			
+			// 1. p태그를 textarea로 변경(기존 내용을 textarea로 옮겨야 함.)
+			// 2. 수정완료 버튼
+			
+			let rnoValue = $(this).attr("href");
+			let replyTag = $("#reply" + rnoValue);
+			replyTag.html("<textarea style='width: 80%; resize: none' class='" + rnoValue + "'>"
+				+ replyTag.text() + "</textarea>");
+			
+			$(this).hide();
+		
+			let finishes = $(".finish");
+			for(let i=0; i<finishes.length; i++){
+				if($(finishes[i]).attr("href") == rnoValue){
+					$(finishes[i]).show();
+					check = true;
+					break;
+				}
+			}
+		});
+		
+		
+		// 수정 완료
+		$(".replies").on("click", "a.finish", function(e){
+			e.preventDefault();
+			rnoValue = $(this).attr("href");
+			let newReply = $("." + rnoValue).val();
+		});
 		
 		function showList(page){
 			replyService.getList(
@@ -156,8 +204,17 @@
 					console.log(list[i].replier);
 					str += "<li style='display:block' data-rno='" + list[i].rno + "'>";
 					str += list[i].replier + "(" + list[i].replydate + ")";
-					str += "<p>" + list[i].reply + "</p>";
-					str += "<div class='line'></div></li>";
+					str += "<p id='reply" + list[i].rno + "'>" + list[i].reply + "</p>";
+					
+					str += "<div style='text-align: right;'>";
+					str += "<a class='modify' href='" + list[i].rno + "'>수정</a>";
+					str += "<a class='finish' href='" + list[i].rno + "' style='display:none;'>수정완료</a>";
+					str += "&nbsp;&nbsp";
+					str += "<a class='remove' href='" + list[i].rno + "'>삭제</a>";
+					str += "</div>";
+					
+					str += "<div class='line'></div>";
+					str += "</li>";
 				}
 				
 				replyUL.html(str);
