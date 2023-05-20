@@ -56,6 +56,22 @@
 
 		</ul>
 		 -->
+		<a href="javascript:void(0)" class="register">댓글등록</a><br>
+		<div class="fields register-form" style="display: none;">
+			<div class="field">
+				<h4>작성자</h4>
+				<input type="text" name="replier" placeholder="Replier">
+			</div><br>
+			<div class="field">
+				<h4>댓글</h4>
+				<textarea rows="6" name="reply" placeholder="Reply" style="resize:none;"></textarea>
+			</div>
+			<div class="field">
+				<a href="javascript:void(0)" class="button primary small finish">등록</a>
+				<a href="javascript:void(0)" class="button primary small cancel">취소</a>
+			</div>
+		</div>
+		
 		<ul class="replies"></ul>
 		<h3><a id="goList" href="#">To List</a></h3>
 	</form>	
@@ -88,6 +104,44 @@
 		let pageNum = 1;
 		showList(pageNum);
 		
+		$(".register").on("click", function(e){
+			e.preventDefault();
+			$(".register-form").show();
+			$(this).hide();
+		});
+		
+		$(".cancel").on("click", function(e, f, g) {
+			e.preventDefault();
+			$(".register-form").hide();
+			$(".register").show();
+			console.log(f);
+			console.log(g);
+		});
+		
+		$(".finish").on("click", function(e){
+			e.preventDefault();
+			// 댓글의 작성자와 댓글 내용을 가져옴
+			let replier = $("input[name='replier']").val();
+			let reply = $("textarea[name='reply']").val();
+			console.log("replier : " + replier);
+			console.log("reply : " + reply);
+			
+			if(replier == "" || reply == "") {
+				return;
+			}
+			replyService.add({bno:bnoValue, reply:reply, replier: replier},
+				function(result){
+					alert(result);
+					$("input[name='replier']").val("");
+					$("textarea[name='reply']").val("");
+					$(".register-form").hide();
+					$(".register").show();
+					showList(pageNum);
+				}
+			);
+			
+		});
+		
 		function showList(page){
 			replyService.getList(
 			{bno:bnoValue, page:page || 1},
@@ -101,7 +155,7 @@
 				for(let i=0, len=list.length; i<len; i++) {
 					console.log(list[i].replier);
 					str += "<li style='display:block' data-rno='" + list[i].rno + "'>";
-					str += list[i].replier + "(" + list[i].replyDate + ")";
+					str += list[i].replier + "(" + list[i].replydate + ")";
 					str += "<p>" + list[i].reply + "</p>";
 					str += "<div class='line'></div></li>";
 				}
