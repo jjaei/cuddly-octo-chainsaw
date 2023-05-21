@@ -2,15 +2,43 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>File Upload Ajax</title>
+<title>File Upload</title>
 </head>
 <body>
-	<h1>File Upload Test(Form)</h1>
+	<h1>File Upload Test(Ajax)</h1>
 	<hr>
 	<div class="uploadDiv">
 		<input type="file" name="uploadFile" multiple style="width: 200pt;" />
 	</div>
 	<hr>
-	<button style="width: 200pt;">Submit</button>
+	<button id="uploadBtn" style="width: 200pt;">Submit</button>
 </body>
+<script src="/js/jquery.js"></script>
+<script>
+	$(document).ready(function(){
+		$("#uploadBtn").on("click", function(e){
+			let inputFile = $("input[name='uploadFile']");
+			let files = inputFile[0].files;
+			console.log(files);
+			
+			// formData 이용, fromData 추가하기
+			let formData = new FormData();
+			for(let i=0; i<files.length; i++){
+				formData.append("uploadFile", files[i]);
+			}
+			
+			$.ajax({
+				url: "uploadAjaxAction",
+				processData: false,
+				contentType: false,
+				data: formData,
+				type: "POST",
+				success: function(){
+					alert("File Uploaded Success!!");
+				}
+			});
+			
+		});
+	});
+</script>
 </html>
