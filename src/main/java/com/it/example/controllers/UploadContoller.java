@@ -50,4 +50,11 @@ public class UploadContoller {
 		}
 		return "/upload/result";  // 임시 리턴 페이지
 	}
+	
+	@PostMapping("uploadAjaxAction")
+	public String uploadAjaxPost(MultipartFile[] uploadFile, Model model) {
+		log.info("upload Ajax post! --------------------------------> ");
+		
+		return "/upload/result";  // 임시 리턴 페이지
+	}
 }
