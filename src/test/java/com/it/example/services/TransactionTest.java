@@ -17,6 +17,7 @@ public class TransactionTest {
 	
 	@Test
 	public void testDoInsert() {
+		// 두 개의 SQL문 중 하나만 성공하는 케이스 테스트
 		transactionService.doInsert(null, "James");
 	}
 	
