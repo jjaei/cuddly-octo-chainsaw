@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+<head>
+   <meta charset="utf-8">
+   <title>Document Object Model</title>
+</head>
+<body>
+   <h3>name property를 이용하여 선택하기</h3>
+   <hr>
+   <form name="joinForm">
+      <div><input type="text" name="id"></div>
+      <div><input type="password" name="pw"></div>
+      <div>
+         <input type="checkbox" name="lang" value="java" checked>Java
+         <input type="checkbox" name="lang" value="C">C
+         <input type="checkbox" name="lang" value="python">Python
+      </div>
+   </form>
+</body>
+<script>
+   // console.log(joinForm);
+   console.log(joinForm.id);
+   console.log(document.getElementsByName("lang"));
+   
+   const checkboxes = document.getElementsByName("lang");
+  /* checkboxes.forEach(function(checkbox){
+      console.log(checkbox.checked);
+      checkbox.checked = true;
+   });
+   */
+   checkboxes.forEach((checkbox) => {
+      console.log(checkbox.checked);
+      console.log(checkbox.getAttribute("checked"))
+      if(checkbox.checked){
+         console.log("언체크드");
+         checkbox.checked = false;
+      }
+   });
+</script>
+</html>

@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+<head>
+   <meta charset="utf-8">
+   <title>a link example</title>
+   <style>
+    a:link {
+        color: teal;
+        text-decoration:underline;
+    }
+    a:visited {
+        color: crimson;
+        text-decoration:double;
+    }
+    a:hover {
+        color: magenta;
+    }
+    a:active {
+        color: yellow;
+        cursor: crosshair;
+    }
+   </style>
+</head>
+<body>
+    <h1>Link Test</h1>
+    <h2><a href="http://www.daum.net">오늘의 뉴스</a></h2>
+    <hr>
+
+    <h1 id="PageStart">페이지 시작</h1>
+    <p><a href="#region01">1번 구역으로</a></p>
+    <p><a href="#region02">2번 구역으로</a></p>
+    <h2>Title01</h2><p>Contents01</p>
+    <h2>Title02</h2><p>Contents02</p>
+    <h2>Title03</h2><p>Contents03</p>
+    <h2>Title04</h2><p>Contents04</p>
+    
+    <h2><a id="region01">Title05</a></h2><p>Contents05</p>
+    <h2>Title06</h2><p>Contents06</p>
+    <h2>Title07</h2><p>Contents07</p>
+    
+    <h2><a id="region02">Title08</a></h2><p>Contents08</p>
+    <h2>Title09</h2><p>Contents09</p>
+    <h2>Title10</h2><p>Contents10</p>
+    <h2><a href="#PageStart">처음으로</a></h2>
+
+</body>
+</html>

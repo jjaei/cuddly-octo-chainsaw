@@ -1,0 +1,33 @@
+.blue, .yellow, .red {
+    width: 100px;
+    height: 100px;
+    border: 3px double gray;
+}
+
+.blue {
+    background-color: blue;
+}
+
+.red {
+    background-color: red;
+ /*    position: relative;
+     left: 30px;
+    z-index: -1;
+*/
+}
+
+.yellow {
+    float: left;
+    position: absolute;
+    top: 10px;
+    left: 50px;
+    background-color: yellow;
+    z-index: 0;
+}
+
+.wrap {
+    background-color: antiquewhite;
+    position: relative;
+}
+
+/* 슥제 : yellow가 absolute인 조건인데, 파란색 박스 위에 있지 않은 이유 찾기 */

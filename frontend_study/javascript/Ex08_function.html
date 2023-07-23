@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+<head>
+   <meta charset="utf-8">
+   <title>function</title>
+</head>
+<body>
+</body>
+<script>
+    // 1부터 10까지 출력하는 함수
+    function printOneTen() {
+        for(let i=1; i<11; i++) {
+            console.log("[printOneTen] " + i);
+        }
+    }
+    printOneTen();
+
+    // 1부터 10까지 합을 출력하는 함수
+    function printTot() {
+        let total = 0;
+        for(let i=1; i<11; i++) {
+            total = total + i ;
+        }
+        console.log("[printTot] " + total);
+    }
+    printTot();
+
+    // 1부터 N까지 합을 출력하는 함수
+    function printTotN(n) {
+        let total = 0;
+        for(let i=1; i<=n; i++) {
+            total = total + i;
+        }
+        console.log("[printTotN] " + total);
+    }
+    printTotN(1000);
+</script>
+
+<script src="js/Ex08_function.js">
+
+</script>
+</html>

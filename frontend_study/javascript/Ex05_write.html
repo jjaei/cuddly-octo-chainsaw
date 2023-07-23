@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+<head>
+   <meta charset="utf-8">
+   <title>document.write 사용하기</title>
+   <script>
+    document.write("<h3>Welcome</h3>");
+</script>
+</head>
+<script>
+    document.write("<h3>Welcome</h3>");
+</script>
+<body>
+    <script>
+        document.write("<h3>Welcome</h3>");
+    </script>
+    <h1>document.write로 요소 삽입하기</h1>
+    <hr>
+</body>
+<script>
+    document.write("<h3>Welcome</h3>");
+    document.write("<pre>");
+    document.writeln("Hello Hello");
+    document.writeln("Who are you?");
+    document.writeln("this is apple");
+    document.write("</pre>");
+
+    with(document) {
+        write("<h3>You're welcome이 수동태인 거 알고 계셨나요?</h3>");
+        write("<pre>");
+        writeln("Good Afternoon");
+        writeln("2+5는 얼마일까요?");
+        write("<strong>" + (2 + 5)+ "</strong> 입니다!");
+        write("</pre>");
+    }
+</script>
+</html>

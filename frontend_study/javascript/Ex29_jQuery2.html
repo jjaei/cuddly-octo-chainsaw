@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+<head>
+ <meta charset="utf-8">
+ <title>jQuery Example 2</title>
+</head>
+<body>
+    <ul class="car">
+        <li>Benz</li>
+        <li>Audi</li>
+        <li>BMW</li>
+    </ul>
+</body>
+<script src="js/jquery-3.6.4.js"></script>
+<script>
+    // 1. li 태그 전체 가져오기
+    var lists = $("li");
+    console.log(lists);
+
+    // 2. class 이름이 car인 태그 전체 가져오기
+    var cars = $(".car");
+    
+
+    // 3. car의 전체 자식 가져오기
+    console.log(cars.children());
+
+    // 4. car의 첫째 자식 내용(text) 가져오기
+    console.log(cars.children().first().text());
+
+    // 5. car의 부모 태그 가져오기
+    console.log(cars.parent());
+
+    // 6. lists의 부모 태그 가져오기
+    console.log(lists.parent());
+
+    // 7. car의 첫째 자식 제거하기
+    cars.children().first().remove();
+
+    // 8. car의 첫째 자식 내용(text)가져오기
+    console.log("첫번째 요소는? : " + cars.children().eq(1).text());
+
+    // 9. car에 새로운 자식 추가하기
+    cars.append("<li>Volvo</li>");
+
+    // 10. car의 세번째 자식의 내용(text) 가져오기
+    console.log("세번째 요소는? : " + cars.children().eq(2).text());
+
+    // 11. 속성 값 가져오기
+    console.log("car의 class 속성은? : " + cars.attr("class"));
+
+    // 12. 속성 값 변경하고 출력하기
+    cars.attr("class", "ValuableCar");
+    console.log("car의 class 속성은? : " + cars.attr("class"));
+</script>
+<html>

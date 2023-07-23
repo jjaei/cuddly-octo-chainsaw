@@ -1,0 +1,45 @@
+.wrap {
+    font-size: 32px;
+    height: 800px;
+    width: 800px;
+    background-color: aquamarine;
+}
+
+.div01 {
+    height: 200px;
+    width: 200px;
+    background-color: green;
+    margin: 10px;
+    padding: 50px;
+}
+
+.div02 {
+    /* box-sizing: border-box는 크기 조정을 하지 않음. */
+    box-sizing: border-box;
+    height: 200px;
+    width: 200px;
+    background-color: rgb(17, 148, 115);
+    margin: 50px;
+    padding: 50px 100px 150px 200px;
+           /* 위, 오른쪽, 아래, 왼쪽 -> 시계방향 */
+}
+
+.div03 {
+    height: 200px;
+    width: 200px;
+    background-color: deeppink;
+    margin: 20px 20px 20px 20px;
+    padding: 30px 100px;
+}
+
+/* semantic tag는 block 속성 */
+
+nav {
+    background-color: rgb(73, 112, 143);
+    color: white;
+    font-size: 50px;
+}
+
+footer {
+    background-color: yellow;
+}

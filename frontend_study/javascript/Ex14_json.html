@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+<head>
+   <meta charset="utf-8">
+   <title>json</title>
+</head>
+<body>
+    <h1>Javascript JSON <-> Object</h1>
+    <hr>
+</body>
+<script>
+/*
+    user = {
+        name: "BTS",
+        members: 7,
+        age: "20th"
+    }
+*/
+    userJSON = '{"name" : "BTS", "members" : 7 , "age" : "20th"}';
+    user = JSON.parse(userJSON);
+    document.write("<h3>Parsing Completed</h3>");
+    document.write("<font size='500'>" + user.name + "</font><br>");
+
+// 상품명과 가격을 JSON으로 생성하기
+// JSON 데이터를 object로 변환하기
+// 프로퍼티 출력
+// 다시 JSON으로 데이터 변환 후 출력
+
+var productJSON ='{"name" : "piano", "price" : 2000000}';
+var product = JSON.parse(productJSON);
+document.write("<h3>신규 상품 도착</h3><hr>");
+document.write("<h3> 상품명 : " + product.name + "</h3>");
+document.write("<h3> 가격 : " + product.price + "원 </h3>");
+product.price = 1800000;  // 가격 내리기
+productJSON = JSON.stringify(product);
+document.write("<h3> JSON 변환 결과는 : " + productJSON + "</h3>");
+
+</script>
+</html>

@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+<head>
+   <meta charset="utf-8">
+   <title>callback</title>
+</head>
+<body>
+    <h1>Javascript Callback 기능</h1>
+    <hr>
+</body>
+<script>
+    function complexCal(num1, num2, callback) {
+        // 외부에서 callback을 지정했다면(callback은 함수 이름)
+        if(callback) {
+            callback(num1 * 10 * num2);
+        } else {
+            console.log("[complexCal] " + (num1 * num2));
+        }
+    }
+    function printHTML(data) {
+        document.write("<h2>택배가 도착했습니다.</h2>");
+        document.write("<h3>printHTML : " + data + "</h3>");
+    }
+    complexCal(139, 203);
+    complexCal(139, 203, printHTML);
+
+    // 상품명, 가격, 개수를 전달받은 후 전체 금액을 출력한다.
+    // 상품명과 가격, 개수는 pay함수가 받아 상품명과 전체 금액을 구한다.
+    // printAll 함수는 상품명과 전체 금액을 받아 화면에 출력한다.
+
+    function pay(name, price, count, callback) {
+        let total = price * count;
+        callback(name, total);
+    }
+
+    function printAll(name, total) {
+        document.write("<h1>구매 영수증</h1>");
+        document.write("<hr>");
+        document.write("[ " + name + " ] : " + total + "원");
+        document.write("<hr>");
+        document.write("<h5>XX쇼핑센터<h5>")
+    }
+
+    pay("재활용 봉투", 250, 10, printAll);
+
+</script>
+</html>
