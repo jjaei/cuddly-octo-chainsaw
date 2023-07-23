@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Modify</title>
+<link rel="stylesheet" href="/css/bootstrap/bootstrap.css" type="text/css">
+</head>
+<body>
+<div class="col-md-10" style="float:none; margin: 0 auto;">
+	<br>
+	<h1>Board</h1>
+	<hr>
+		<form method="post" action="/board/modify">
+		<div class="wrap"  th:object="${board}">
+			<h4 th:text="'글 번호 : ' +*{bno}"></h4>
+			<input type="hidden"  name="bno"  th:field="*{bno}" />
+			<hr>
+			<!-- 두 가지 방식으로 작성할 수 있음. modify와의 소스 공유를 위해 2번으로 코드 작성 -->
+			<!--  1번: <h4 th:text="'글 제목 : ' +*{title}">글 제목</h4> -->
+			<!-- 2번:  --> Title : <input name="title" type="text" th:field="*{title}"  />
+			<button th:text="*{title}"></button>
+			<hr>
+			<!-- <h4>글 내용</h4> 
+			<p  th:text="*{content}"></p> -->
+			<textarea name="content" style="resize:none;" rows="6"  cols = "100" th:text="*{content}"  ></textarea>
+			<hr>
+			<!--
+			<h4 th:text="'작성자 : ' +*{writer}">작성자</h4>
+			  -->
+			 Writer  : <input name="writer" type="text" th:field="*{writer}"  />
+			<hr>
+			<!--
+			<h4  th:text="'작성일자 : ' +*{regdate}">작성일자</h4>
+			<h4  th:text="'수정일자 : ' +*{updatedate}">수정일자</h4>
+			 -->
+			 <button>수정</button>
+			<hr>
+		</div>
+		</form>
+</div>
+</body>
+</html>

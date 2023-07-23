@@ -1,0 +1,17 @@
+CREATE SEQUENCE seq_test;
+CREATE TABLE tbl_test1 (
+	id varchar(100),
+	name varchar(500),
+	PRIMARY key(id)
+);
+
+CREATE TABLE tbl_test2 (
+	num int(10),
+	name varchar(500),
+	PRIMARY key(num)
+);
+
+SELECT * FROM tbl_test1;
+SELECT * FROM tbl_test2;
+
+truncate TABLE tbl_test2; 

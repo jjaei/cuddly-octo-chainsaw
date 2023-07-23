@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Example05</title>
+</head>
+<body>
+	<h1>Example05</h1>
+	<hr>
+	<table border="1">
+		<tr>
+			<th>총점</th>
+			<th>평균</th>
+		</tr>
+		<tr th:object="${task}">
+			<td th:text="*{kor+eng+math}"></td>
+			<td th:text="*{(kor+eng+math)/3F}"></td>
+		</tr>
+	</table>
+
+</body>
+</html>
